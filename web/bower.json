@@ -1,5 +1,5 @@
 {
-  "name": "ES6-express-scaffold-app",
+  "name": "influence-web",
   "private": true,
   "dependencies": {
     "jquery.scrollTo": "~2.1.1",
