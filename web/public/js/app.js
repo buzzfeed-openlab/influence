@@ -10,14 +10,14 @@ import UpcomingPage from "./upcoming-page";
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-      
-      <IndexRoute component={TeamPage}></IndexRoute>
-      <Route path="feed" name="feed" component={FeedPage}></Route>
-      <Route path="upcoming" name="upcoming" component={UpcomingPage}></Route>
+    <Router history={hashHistory}>
+        <Route path="/" component={Layout}>
 
-    </Route>
-  </Router>,
+            <IndexRoute component={TeamPage}></IndexRoute>
+            <Route path="feed" name="feed" component={FeedPage}></Route>
+            <Route path="upcoming" name="upcoming" component={UpcomingPage}></Route>
+
+        </Route>
+    </Router>,
 app);
 
