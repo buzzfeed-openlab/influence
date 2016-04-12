@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import { Router, Route, IndexRedirect, hashHistory } from "react-router";
 
 import Layout from "./layout";
 import TeamPage from "./team-page";
@@ -13,7 +13,8 @@ ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={Layout}>
 
-            <IndexRoute component={TeamPage}></IndexRoute>
+            <IndexRedirect to="/feed" />
+            <Route path="team" name="team" component={TeamPage}></Route>
             <Route path="feed" name="feed" component={FeedPage}></Route>
             <Route path="upcoming" name="upcoming" component={UpcomingPage}></Route>
 
