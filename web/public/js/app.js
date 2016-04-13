@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRedirect, hashHistory } from "react-router";
 
+// required css
+import 'react-virtualized/styles.css';
+
+// pages
 import Layout from "./layout";
 import TeamPage from "./team-page";
 import FeedPage from "./feed-page";
