@@ -1,11 +1,11 @@
-import React from "react";
-import { VirtualScroll } from 'react-virtualized';
+import React from 'react';
+import MultiSelectList from './multi-select-list';
 
 export default class TeamPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            interests: ["Health Services/HMOs","Forestry & Forest Products","TV/Movies/Music","Air Transport","Insurance","Electric Utilities","Misc Manufacturing & Distributing","Republican/Conservative","Pharmaceuticals/Health Products","Computers/Internet","Education","Savings & Loans","Lodging/Tourism","Misc Services","Foreign & Defense Policy","Joint Candidate Cmte","Human Rights","Health Professionals","Hospitals/Nursing Homes","Mining","Sea Transport","Securities & Investment","Candidate Committees","Business Services","Misc Business","Accountants","Misc Defense","Building Materials & Equipment","Non-contribution","Employer Listed/Category Unknown","Party Committees","Environment","Misc Issues","Public Sector Unions","Food & Beverage","Misc Finance","Non-Profit Institutions","Special Trade Contractors","Industrial Unions","Misc Unions","Automotive","Agricultural Services/Products","Construction Services","Business Associations","Waste Management","Printing & Publishing","Beer, Wine & Liquor","Leadership PACs","Civil Servants/Public Officials","Pro-Israel","Crop Production & Basic Processing","Real Estate","Retail Sales","Misc Health","Telecom Services & Equipment","Railroads","Other","Defense Aerospace","No Employer Listed or Found","Intl Orgs","Misc Energy","General Contractors","Democratic/Liberal","Abortion Policy/Pro-Life","Livestock","Chemical & Related Manufacturing","Lobbyists","Home Builders","Generic Occupation/Category Unknown","Finance/Credit Companies","Defense Electronics","Trucking","Homemakers/Non-income earners","Commercial Banks","Women's Issues","Transportation Unions","Oil & Gas","Environmental Svcs/Equipment","Food Processing & Sales","Misc Transport","Gun Rights","Lawyers/Law Firms","Fisheries & Wildlife","Retired","Abortion Policy/Pro-Choice","Telephone Utilities","Electronics Mfg & Services","Misc Agriculture","Recreation/Live Entertainment","Steel Production","Building Trade Unions","Tobacco","Clergy & Religious Organizations","Textiles","Gun Control","Unknown","Credit Unions","Casinos/Gambling","Dairy","Poultry & Eggs","Party Committee Transfer","Candidate Self-finance","Misc Communications/Electronics"]
+            interests: [{ name: "Health Services/HMOs" },{ name: "Forestry & Forest Products" },{ name: "TV/Movies/Music" },{ name: "Air Transport" },{ name: "Insurance" },{ name: "Electric Utilities" },{ name: "Misc Manufacturing & Distributing" },{ name: "Republican/Conservative" },{ name: "Pharmaceuticals/Health Products" },{ name: "Computers/Internet" },{ name: "Education" },{ name: "Savings & Loans" },{ name: "Lodging/Tourism" },{ name: "Misc Services" },{ name: "Foreign & Defense Policy" },{ name: "Joint Candidate Cmte" },{ name: "Human Rights" },{ name: "Health Professionals" },{ name: "Hospitals/Nursing Homes" },{ name: "Mining" },{ name: "Sea Transport" },{ name: "Securities & Investment" },{ name: "Candidate Committees" },{ name: "Business Services" },{ name: "Misc Business" },{ name: "Accountants" },{ name: "Misc Defense" },{ name: "Building Materials & Equipment" },{ name: "Non-contribution" },{ name: "Employer Listed/Category Unknown" },{ name: "Party Committees" },{ name: "Environment" },{ name: "Misc Issues" },{ name: "Public Sector Unions" },{ name: "Food & Beverage" },{ name: "Misc Finance" },{ name: "Non-Profit Institutions" },{ name: "Special Trade Contractors" },{ name: "Industrial Unions" },{ name: "Misc Unions" },{ name: "Automotive" },{ name: "Agricultural Services/Products" },{ name: "Construction Services" },{ name: "Business Associations" },{ name: "Waste Management" },{ name: "Printing & Publishing" },{ name: "Beer, Wine & Liquor" },{ name: "Leadership PACs" },{ name: "Civil Servants/Public Officials" },{ name: "Pro-Israel" },{ name: "Crop Production & Basic Processing" },{ name: "Real Estate" },{ name: "Retail Sales" },{ name: "Misc Health" },{ name: "Telecom Services & Equipment" },{ name: "Railroads" },{ name: "Other" },{ name: "Defense Aerospace" },{ name: "No Employer Listed or Found" },{ name: "Intl Orgs" },{ name: "Misc Energy" },{ name: "General Contractors" },{ name: "Democratic/Liberal" },{ name: "Abortion Policy/Pro-Life" },{ name: "Livestock" },{ name: "Chemical & Related Manufacturing" },{ name: "Lobbyists" },{ name: "Home Builders" },{ name: "Generic Occupation/Category Unknown" },{ name: "Finance/Credit Companies" },{ name: "Defense Electronics" },{ name: "Trucking" },{ name: "Homemakers/Non-income earners" },{ name: "Commercial Banks" },{ name: "Women's Issues" },{ name: "Transportation Unions" },{ name: "Oil & Gas" },{ name: "Environmental Svcs/Equipment" },{ name: "Food Processing & Sales" },{ name: "Misc Transport" },{ name: "Gun Rights" },{ name: "Lawyers/Law Firms" },{ name: "Fisheries & Wildlife" },{ name: "Retired" },{ name: "Abortion Policy/Pro-Choice" },{ name: "Telephone Utilities" },{ name: "Electronics Mfg & Services" },{ name: "Misc Agriculture" },{ name: "Recreation/Live Entertainment" },{ name: "Steel Production" },{ name: "Building Trade Unions" },{ name: "Tobacco" },{ name: "Clergy & Religious Organizations" },{ name: "Textiles" },{ name: "Gun Control" },{ name: "Unknown" },{ name: "Credit Unions" },{ name: "Casinos/Gambling" },{ name: "Dairy" },{ name: "Poultry & Eggs" },{ name: "Party Committee Transfer" },{ name: "Candidate Self-finance" },{ name: "Misc Communications/Electronics" }]
         };
     }
 
@@ -31,22 +31,7 @@ class TeamBuilder extends React.Component {
     render() {
         return (
             <div>
-                <div class="row">
-                    <div class="col-lg-8">
-                        <VirtualScroll
-                            width={300}
-                            height={300}
-                            rowsCount={this.props.interests.length}
-                            rowHeight={20}
-                            rowRenderer={
-                              i => <InterestRowDetailed interest={this.props.interests[i]} />
-                            }
-                        />
-                    </div>
-                    <div class="col-lg-4">
-                        Hi
-                    </div>
-                </div>
+                <MultiSelectList items={this.props.interests} />
             </div>
         );
     }
