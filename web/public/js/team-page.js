@@ -34,7 +34,7 @@ export default class TeamPage extends React.Component {
     onSubmitTeam() {
         this.setState({
             team: {
-                name: name,
+                name: this.state.name,
                 interests: this.state.selected,
             }
         });
