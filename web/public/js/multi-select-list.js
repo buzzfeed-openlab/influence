@@ -13,10 +13,18 @@ export default class MultiSelectList extends React.Component {
         var selected = this.state.selected.slice();
         selected.splice(index, 1);
         this.setState({selected});
+
+        if (this.props.onSelectionChange) {
+            this.props.onSelectionChange(selected);
+        }
     }
 
     handleSelectionChange(selected) {
-       this.setState({selected});
+        this.setState({selected});
+
+        if (this.props.onSelectionChange) {
+            this.props.onSelectionChange(selected);
+        }
     }
 
     render() {
