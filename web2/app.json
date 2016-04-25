@@ -1,0 +1,10 @@
+{
+  "name": "Influence Game",
+  "description": "",
+  "repository": "https://github.com/buzzfeed-openlab/influence",
+  "logo": "",
+  "keywords": ["news-game", "news", "game", "congress", "fantasy", "influence"],
+  "addons" : [
+  	"mongohq"
+  ]
+}
