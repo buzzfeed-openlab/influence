@@ -1,11 +1,14 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRedirect } from 'react-router';
 
 import App from 'containers/App';
 import Vote from 'containers/Vote';
 import About from 'containers/About';
 import LoginOrRegister from 'containers/LoginOrRegister';
 import Dashboard from 'containers/Dashboard';
+import TeamPage from 'containers/TeamPage';
+import FeedPage from 'containers/FeedPage';
+import UpcomingPage from 'containers/UpcomingPage';
 
 /*
  * @param {Redux Store}
@@ -35,9 +38,11 @@ export default (store) => {
   };
   return (
     <Route path="/" component={App}>
-      <IndexRoute component={Vote} />
+      <IndexRedirect to="/team" />
       <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
-      <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
+      <Route path="team" component={TeamPage} onEnter={requireAuth} />
+      <Route path="feed" component={FeedPage} onEnter={requireAuth} />
+      <Route path="upcoming" component={UpcomingPage} onEnter={requireAuth} />
       <Route path="about" component={About} />
     </Route>
   );

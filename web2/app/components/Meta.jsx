@@ -10,7 +10,7 @@ if (__DEVSERVER__) {
   config.link = config.link.filter(l => l.rel !== 'stylesheet');
 }
 
-const Meta = () => <Helmet title="React Webpack Node" meta={config.meta} link={config.link} />;
+const Meta = () => <Helmet title="Influence Game" meta={config.meta} link={config.link} />;
 
 
 ReactDOMServer.renderToString(<Meta />);
