@@ -36,14 +36,14 @@ export default (store) => {
     }
     callback();
   };
+
   return (
     <Route path="/" component={App}>
-      <IndexRedirect to="/team" />
+      <IndexRedirect to="/feed" />
       <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
       <Route path="team" component={TeamPage} onEnter={requireAuth} />
       <Route path="feed" component={FeedPage} onEnter={requireAuth} />
       <Route path="upcoming" component={UpcomingPage} onEnter={requireAuth} />
-      <Route path="about" component={About} />
     </Route>
   );
 };

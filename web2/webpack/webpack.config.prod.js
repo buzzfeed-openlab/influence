@@ -124,49 +124,5 @@ module.exports = [
         new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' })
     ],
     postcss: postCSSConfig
-  }, {
-    // The configuration for the server-side rendering
-    name: "server-side rendering",
-    context: path.join(__dirname, "..", "app"),
-    entry: {
-      server: "./server"
-    },
-    target: "node",
-    output: {
-      // The output directory as absolute path
-      path: assetsPath,
-      // The filename of the entry chunk as relative path inside the output.path directory
-      filename: "server.js",
-      // The output path from the view of the Javascript
-      publicPath: publicPath,
-      libraryTarget: "commonjs2"
-    },
-    module: {
-      loaders: commonLoaders
-    },
-    resolve: {
-      extensions: ['', '.js', '.jsx', '.css'],
-      modulesDirectories: [
-        "app", "node_modules"
-      ]
-    },
-    plugins: [
-        // Order the modules and chunks by occurrence.
-        // This saves space, because often referenced modules
-        // and chunks get smaller ids.
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin("styles/main.css"),
-        new webpack.optimize.UglifyJsPlugin({
-          compressor: {
-            warnings: false
-          }
-        }),
-        new webpack.DefinePlugin({
-          __DEVCLIENT__: false,
-          __DEVSERVER__: false
-        }),
-        new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' })
-    ],
-    postcss: postCSSConfig
   }
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const UpcomingPage = () => <div>Welcome to the upcoming page. Stay tuned...</div>;
+const UpcomingPage = () => <div>Crazy upcoming page! (legislation slated to come before congress)</div>;
 
 export default UpcomingPage;

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const FeedPage = () => <div>Welcome to the feed page. Stay tuned...</div>;
+const FeedPage = () => <div>Crazy feed page! Latest events / score changes</div>;
 
 export default FeedPage;

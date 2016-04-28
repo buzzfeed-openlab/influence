@@ -6,7 +6,7 @@ import passportConfig from './config/passport';
 import expressConfig from './config/express';
 import routesConfig from './config/routes';
 import webpackDevConfig from '../webpack/webpack.config.dev-client';
-const App = require('../public/assets/server');
+// const App = require('../public/assets/server');
 const app = express();
 
 /*
@@ -49,6 +49,6 @@ routesConfig(app);
  * App is a function that requires store data and url
  * to initialize and return the React-rendered html string
  */
-app.get('*', App.default);
+// app.get('*', App.default);
 
 app.listen(app.get('port'));
