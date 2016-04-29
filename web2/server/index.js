@@ -1,5 +1,6 @@
 import express from 'express';
 import webpack from 'webpack';
+import path from 'path';
 import { ENV } from './config/appConfig';
 import { connect } from './db';
 import passportConfig from './config/passport';
@@ -43,12 +44,11 @@ expressConfig(app);
  */
 routesConfig(app);
 
-/*
- * This is where the magic happens. We take the locals data we have already
- * fetched and seed our stores with data.
- * App is a function that requires store data and url
- * to initialize and return the React-rendered html string
- */
-// app.get('*', App.default);
+// serve up the single page app regardless of route
+function serveIndex(req, res) {
+    return res.sendfile(path.join(__dirname, '..', 'public', 'index.html'));
+}
+app.get('*', serveIndex);
+app.head('*', serveIndex);
 
 app.listen(app.get('port'));
