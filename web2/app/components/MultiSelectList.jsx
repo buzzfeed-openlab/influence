@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactBootstrap, { Row, Col } from 'react-bootstrap';
 import FilteredMultiSelect from 'react-filtered-multiselect';
 
 export default class MultiSelectList extends Component {
@@ -48,8 +49,8 @@ export default class MultiSelectList extends Component {
 
         return (
             <div>
-                <div class="row">
-                    <div class="col-lg-6">
+                <Row>
+                    <Col sm={12} md={6}>
                         <FilteredMultiSelect
                             onChange={(selected) => this.handleSelectionChange(selected)}
                             options={this.props.items}
@@ -58,11 +59,11 @@ export default class MultiSelectList extends Component {
                             valueProp="name"
                             classNames={MultiSelectListClasses}
                         />
-                    </div>
-                    <div class="col-lg-6">
+                    </Col>
+                    <Col sm={12} md={6}>
                         {selectedList}
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         );
       }
