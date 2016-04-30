@@ -6,6 +6,12 @@ import { manualLogin, signUp, toggleLoginMode } from 'actions/users';
 import styles from 'css/components/login';
 import hourGlassSvg from 'images/hourglass.svg';
 
+import ReactBootstrap, {
+  Row,
+  Col,
+  Button,
+} from 'react-bootstrap';
+
 const cx = classNames.bind(styles);
 
 class LoginOrRegister extends Component {
@@ -16,7 +22,6 @@ class LoginOrRegister extends Component {
    */
   constructor(props) {
     super(props);
-    this.toggleMode = this.toggleMode.bind(this);
     this.onLoginSubmit = this.onLoginSubmit.bind(this);
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
   }
@@ -41,49 +46,36 @@ class LoginOrRegister extends Component {
     }));
   }
 
-  toggleMode() {
-    this.props.dispatch(toggleLoginMode());
-  }
-
-  renderHeader() {
-    const { isLogin } = this.props.user;
-    if (isLogin) {
-      return (
-        <div className={cx('header')}>
-          <h1 className={cx('heading')}>Login with Email</h1>
-          <div className={cx('alternative')}>
-            Not what you want?
-            <a className={cx('alternative-link')}
-              onClick={this.toggleMode}> Register an Account</a>
-          </div>
-        </div>
-      );
-    }
-
+  renderEmailHeader() {
     return (
       <div className={cx('header')}>
-      <h1 className={cx('heading')}>Register with Email</h1>
-        <div className={cx('alternative')}>
-          Already have an account?
-          <a className={cx('alternative-link')}
-            onClick={this.toggleMode}> Login</a>
-        </div>
+        <h1 className={cx('heading')}>login or register via email</h1>
       </div>
     );
   }
 
-  renderButton() {
-    const { isLogin } = this.props.user;
-    if (isLogin) {
-      return (
-        <button className={cx('button')}
-          onClick={this.onLoginSubmit}>Login</button>
-      );
-    }
-
+  renderEmailButtons() {
     return (
-      <button className={cx('button')}
-        onClick={this.onRegisterSubmit}>Register</button>
+      <div>
+        <Button bsStyle="primary" block onClick={this.onLoginSubmit}>login</Button>
+        <Button block onClick={this.onRegisterSubmit}>register</Button>
+      </div>
+    );
+  }
+
+  renderSocialHeader() {
+    return (
+      <div className={cx('header')}>
+        <h1 className={cx('heading')}>or</h1>
+      </div>
+    );
+  }
+
+  renderSocialButtons() {
+    return (
+      <div>
+        <Button bsStyle="success" block href="/auth/google">login with google</Button>
+      </div>
     );
   }
 
@@ -94,32 +86,44 @@ class LoginOrRegister extends Component {
       <div className={cx('login', {
         waiting: isWaiting
       })}>
-        <div className={cx('container')}>
-          { this.renderHeader() }
-          <img className={cx('loading')} src={hourGlassSvg} />
-          <div className={cx('email-container')}>
-            <input className={cx('input')}
-              type="email"
-              ref="email"
-              placeholder="email" />
-            <input className={cx('input')}
-              type="password"
-              ref="password"
-              placeholder="password" />
-            <div className={cx('hint')}>
-              <div>Hint</div>
-              <div>email: example@ninja.com password: ninja</div>
-            </div>
-            <p className={cx('message', {
-              'message-show': message && message.length > 0
-              })}>{message}</p>
-            { this.renderButton() }
-          </div>
-          <div className={cx('google-container')}>
-            <h1 className={cx('heading')}>Google Login Demo</h1>
-            <a className={cx('button')}
-          href="/auth/google">Login with Google</a>
-          </div>
+        <div>
+          <Row>
+            <Col md={12}>
+              { this.renderEmailHeader() }
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <img className={cx('loading')} src={hourGlassSvg} />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <input className={cx('input')}
+                type="email"
+                ref="email"
+                placeholder="email" />
+              <input className={cx('input')}
+                type="password"
+                ref="password"
+                placeholder="password" />
+              <p className={cx('message', {
+                'message-show': message && message.length > 0
+                })}>{message}</p>
+              { this.renderEmailButtons() }
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md={12}>
+              { this.renderSocialHeader() }
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              { this.renderSocialButtons() }
+            </Col>
+          </Row>
         </div>
       </div>
     );
