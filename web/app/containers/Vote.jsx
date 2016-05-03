@@ -13,21 +13,23 @@ const cx = classNames.bind(styles);
 
 class Vote extends Component {
 
-  //Data that needs to be called before rendering the component
-  //This is used for server side rending via the fetchComponentDataBeforeRender() method
-  static need = [  // eslint-disable-line
-    fetchTopics
-  ]
-
   constructor(props) {
     super(props);
     // event handlers for MainSection component
+    this.onFetch = this.onFetch.bind(this);
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
     this.onDestroy = this.onDestroy.bind(this);
     // event handlers for EntryBox component
     this.onEntryChange = this.onEntryChange.bind(this);
     this.onEntrySave = this.onEntrySave.bind(this);
+
+    this.onFetch();
+  }
+
+  onFetch(id, index) {
+    const { dispatch } = this.props;
+    dispatch(fetchTopics());
   }
 
   onIncrement(id, index) {

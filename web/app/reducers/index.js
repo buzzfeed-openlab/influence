@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import user from 'reducers/user';
 import topic from 'reducers/topic';
+import interest from 'reducers/interest';
 import message from 'reducers/message';
 import { routerReducer as routing } from 'react-router-redux';
 
@@ -9,6 +10,7 @@ import { routerReducer as routing } from 'react-router-redux';
 const rootReducer = combineReducers({
   user,
   topic,
+  interest,
   message,
   routing
 });

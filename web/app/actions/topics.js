@@ -123,6 +123,7 @@ export function createTopic(text) {
 
 // Fetch posts logic
 export function fetchTopics() {
+  console.log('FETCH TOPICS');
   return {
     type: types.GET_TOPICS,
     promise: makeTopicRequest('get')
