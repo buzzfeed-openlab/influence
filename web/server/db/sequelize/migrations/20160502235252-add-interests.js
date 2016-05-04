@@ -5,8 +5,9 @@ module.exports = {
     return queryInterface.createTable(
       'Interests', {
         id: {
-          type: DataTypes.STRING,
-          primaryKey: true
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true
         },
         name: {
           type: DataTypes.STRING
