@@ -8,6 +8,7 @@ import { controllers, passport as passportConfig } from '../db';
 const usersController = controllers && controllers.users;
 const topicsController = controllers && controllers.topics;
 const interestsController = controllers && controllers.interests;
+const teamsController = controllers && controllers.teams;
 
 export default (app) => {
   // user routes
@@ -61,5 +62,14 @@ export default (app) => {
     app.delete('/interests/:id', interestsController.remove);
   } else {
     console.warn(unsupportedMessage('interests routes'));
+  }
+
+  // team routes
+  if (teamsController) {
+    app.get('/teams', teamsController.all);
+    app.post('/teams/:id', teamsController.add);
+    app.delete('/teams/:id', teamsController.remove);
+  } else {
+    console.warn(unsupportedMessage('teams routes'));
   }
 };

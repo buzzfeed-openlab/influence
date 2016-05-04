@@ -1,5 +1,5 @@
-export default (sequelize, DataTypes) =>
-  sequelize.define('Interest', {
+export default (sequelize, DataTypes) => {
+  const Interest = sequelize.define('Interest', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -12,5 +12,14 @@ export default (sequelize, DataTypes) =>
       type: DataTypes.STRING
     }
   }, {
-    timestamps: false
+    timestamps: false,
+
+    classMethods: {
+      associate(models) {
+        Interest.belongsToMany(models.Team, { through: 'TeamInterest' });
+      }
+    }
   });
+
+  return Interest;
+}
