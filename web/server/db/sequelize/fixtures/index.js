@@ -1,14 +1,3 @@
-// var sequelize_fixtures = require('sequelize-fixtures'),
-// models = {
-//     Interests: require('../models/interests'),
-// };
-
-// sequelize_fixtures.loadFiles([
-//     './interests.js',
-//     ], models).then(function(){
-
-//     console.log('loaded fixtures!')
-// });
 
 import Models from '../models';
 const sequelize = Models.sequelize;
