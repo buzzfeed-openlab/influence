@@ -10,6 +10,7 @@
     "sequelize": "node_modules/.bin/sequelize",
     "migrate": "npm run sequelize -- db:migrate",
     "migrate:undo": "npm run sequelize -- db:migrate:undo",
+    "migrate:undo:all": "npm run sequelize -- db:migrate:undo:all",
     "fixtures": "npm run babel-node -- ./server/db/sequelize/fixtures/index.js",
     "lint": "eslint app server",
     "clean": "rimraf public && rimraf compiled",
